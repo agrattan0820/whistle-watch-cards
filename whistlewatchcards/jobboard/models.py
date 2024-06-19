@@ -35,8 +35,12 @@ class Job(models.Model):
 
 class Referee(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    applications = models.ManyToManyField(Job, through="Application")
-    assignments = models.ManyToManyField(Job, through="Assignment")
+    applications = models.ManyToManyField(
+        Job, through="Application", related_name="applied"
+    )
+    assignments = models.ManyToManyField(
+        Job, through="Assignment", related_name="assigned"
+    )
     clubs = models.ManyToManyField(Club)
 
 
