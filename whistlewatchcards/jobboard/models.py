@@ -1,6 +1,10 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 from phonenumber_field.modelfields import PhoneNumberField
+
+
+class User(AbstractUser):
+    phone_number = PhoneNumberField(blank=True)
 
 
 class Club(models.Model):
@@ -9,8 +13,13 @@ class Club(models.Model):
 
 class Assignor(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    phone_number = PhoneNumberField(blank=True)
+    clubs = models.ManyToManyField(Club, through="AssignorClub")
+
+
+class AssignorClub(models.Model):
     club = models.ForeignKey(Club, on_delete=models.CASCADE)
+    assignor = models.ForeignKey(Assignor, on_delete=models.CASCADE)
+    admin = models.BooleanField()
 
 
 class Job(models.Model):
@@ -26,9 +35,9 @@ class Job(models.Model):
 
 class Referee(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    phone_number = PhoneNumberField(blank=True)
     applications = models.ManyToManyField(Job, through="Application")
     assignments = models.ManyToManyField(Job, through="Assignment")
+    clubs = models.ManyToManyField(Club)
 
 
 class Assignment(models.Model):
