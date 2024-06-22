@@ -1,9 +1,12 @@
 import datetime
 from django.http import HttpResponse
-from django.views.generic import TemplateView
+from django.views.generic import ListView
+
+from jobboard.models import Job
 
 
-class IndexView(TemplateView):
+class IndexView(ListView):
+    model = Job
     template_name = "index.html"
 
 

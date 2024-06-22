@@ -1,1 +1,10 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'jobboard/style.css' %}">
 <h1>Homepage</h1>
+<ul>
+ {% for job in object_list %}
+  <li>{{ job.created_at|date }} - {{ job.location }}</li>
+ {% empty %}
+  <li>No jobs yet.</li>
+ {% endfor %}
+</ul>
