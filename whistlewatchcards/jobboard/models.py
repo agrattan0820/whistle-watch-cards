@@ -36,6 +36,7 @@ class Job(models.Model):
     address_1 = models.CharField(max_length=128)
     address_2 = models.CharField(max_length=128, blank=True)
     city = models.CharField(max_length=64)
+    state = models.CharField(max_length=2)
     zip_code = models.CharField(max_length=5)
     location = models.CharField(max_length=128)
     league = models.CharField(max_length=128, blank=True)
