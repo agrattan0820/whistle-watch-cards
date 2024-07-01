@@ -1,10 +1,16 @@
+{% extends "base.html" %}
 {% load static %}
-<link rel="stylesheet" href="{% static 'jobboard/style.css' %}">
-<h1>Homepage</h1>
-<ul>
- {% for job in job_list %}
-  <li>{{ job.created_at|date }} - {{ job.location }}</li>
- {% empty %}
-  <li>No jobs yet.</li>
- {% endfor %}
-</ul>
+{% block title %}
+ Homepage - Whistle Watch Cards
+{% endblock title %}
+{% block content %}
+ <h1>Whistle Watch Cards</h1>
+ <img src="{% static "jobboard/images/referee-red-card-hand-drawn.webp" %}" alt="A hand-drawn hand holding up a red card from soccer" width="250" height="250" />
+ <ul>
+  {% for job in job_list %}
+   <li>{{ job.created_at|date }} - {{ job.location }}</li>
+  {% empty %}
+   <li>No jobs yet.</li>
+  {% endfor %}
+ </ul>
+{% endblock content %}
