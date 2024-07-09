@@ -2,3 +2,59 @@ body {
   font-family: "Poppins", sans-serif;
   -webkit-font-smoothing: antialiased;
 }
+
+/* Utilities */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.container {
+  max-width: 1536px;
+  margin-inline: auto;
+}
+
+/* Header */
+
+header {
+  background-color: beige;
+  padding-block: 1rem;
+  padding-inline: 1.5rem;
+}
+
+header .icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header nav ul {
+  list-style-type: none;
+}
+
+header nav ul li a {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+header nav ul li a:hover {
+  text-decoration: underline;
+}
+
+header nav ul li a:focus {
+  text-decoration: underline;
+}
