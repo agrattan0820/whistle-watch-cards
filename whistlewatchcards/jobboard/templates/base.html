@@ -14,6 +14,9 @@
             <link rel="stylesheet" href="{% static 'jobboard/reset.css' %}">
             <link rel="stylesheet" href="{% static 'jobboard/style.css' %}">
             <title>
+                  {% comment %}
+                        Whitespace is added around the title, can look into removing it
+                  {% endcomment %}
                   {% block title %}
                         Whistle Watch Cards
                   {% endblock title %}
