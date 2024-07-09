@@ -4,13 +4,19 @@
  Homepage - Whistle Watch Cards
 {% endblock title %}
 {% block content %}
- <h1>Whistle Watch Cards</h1>
- <img src="{% static "jobboard/images/referee-red-card-hand-drawn.webp" %}" alt="A hand-drawn hand holding up a red card from soccer" width="250" height="250" />
- <ul>
-  {% for job in job_list %}
-   <li>{{ job.created_at|date }} - {{ job.location }}</li>
-  {% empty %}
-   <li>No jobs yet.</li>
-  {% endfor %}
- </ul>
+ <section class="hero">
+  <h2>Find Soccer Referee Jobs Near You</h2>
+  <img src="{% static "jobboard/images/referee-red-card-hand-drawn.webp" %}" alt="A hand-drawn hand holding up a red card from soccer" width="250" height="250" />
+ </section>
+ <section>
+  <ul>
+   {% for job in job_list %}
+    <li>
+     <a href="{% url "job-details" job.id %}">{{ job.created_at|date }} - {{ job.location }}</a>
+    </li>
+   {% empty %}
+    <li>No jobs yet.</li>
+   {% endfor %}
+  </ul>
+ </section>
 {% endblock content %}

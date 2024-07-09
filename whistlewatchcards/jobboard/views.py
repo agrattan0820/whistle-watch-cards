@@ -1,6 +1,6 @@
 import datetime
 from django.http import HttpResponse
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
 from jobboard.models import Job
 
@@ -26,6 +26,13 @@ def create_account(request):
 
 def job_details(request):
     return HttpResponse("Job details page.")
+
+class JobDetailView(DetailView):
+    model = Job
+    template_name = "job_detail.html"
+
+    def get_object(self, queryset=None):
+        return Job.objects.get(id=self.kwargs.get("job_id"))
 
 
 def job_apply(request):
