@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+ Add Job - Whistle Watch Cards
+{% endblock title %}
+{% block content %}
+ <section>
+  <h2>Add Job</h2>
+  <form action="/job/add" method="post">
+   {% csrf_token %}
+   {{ form }}
+   <input type="submit" value="Submit">
+  </form>
+ </section>
+{% endblock content %}

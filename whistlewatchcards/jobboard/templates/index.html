@@ -12,7 +12,7 @@
   <ul>
    {% for job in job_list %}
     <li>
-     <a href="{% url "job-details" job.id %}">{{ job.created_at|date }} - {{ job.location }}</a>
+     <a href="{{ job.get_absolute_url }}">{{ job.created_at|date }} - {{ job.location }}</a>
     </li>
    {% empty %}
     <li>No jobs yet.</li>

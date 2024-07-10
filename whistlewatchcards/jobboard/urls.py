@@ -7,6 +7,7 @@ urlpatterns = [
     path("ping", views.current_datetime, name="ping"),
     path("signin", views.signin, name="signin"),
     path("create-account", views.create_account, name="create-account"),
-    path("job/<uuid:job_id>", views.JobDetailView.as_view(), name="job-details"),
+    path("job/<uuid:job_id>", views.JobDetailView.as_view(), name="job-detail"),
+    path("job/add", views.JobCreateView.as_view(), name="job-add"),
     path("job/<uuid:job_id>/apply", views.job_apply, name="job-apply"),
 ]

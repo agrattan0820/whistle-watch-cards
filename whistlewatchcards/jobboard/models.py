@@ -1,6 +1,7 @@
 import uuid
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.urls import reverse
 from phonenumber_field.modelfields import PhoneNumberField
 
 
@@ -42,6 +43,10 @@ class Job(models.Model):
     league = models.CharField(max_length=128, blank=True)
     notes = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
+
+    def get_absolute_url(self):
+        return reverse("job-detail", kwargs={"job_id": self.id})
+    
 
 
 class Referee(models.Model):
