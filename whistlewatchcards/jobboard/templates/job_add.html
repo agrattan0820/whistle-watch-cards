@@ -6,7 +6,7 @@
 {% block content %}
  <section>
   <h2>Add Job</h2>
-  <form action="/job/add" method="post">
+  <form action={% url "job-add" %} method="post">
    {% csrf_token %}
    {{ form }}
    <input type="submit" value="Submit">
