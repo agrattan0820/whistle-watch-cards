@@ -19,7 +19,11 @@
        <h2>{{ job.home_team }} vs. {{ job.away_team }}</h2>
       {% endif %}
       <p>{{ job.date_time|date:"N j, o" }} at {{ job.date_time|date:"P" }}</p>
-      <p>{{ job.location }}</p>
+      <address>
+       {{ job.address_1 }}
+       {% if job.address_2 %}{{ job.address_2 }}{% endif %}
+       , {{ job.city }}, {{ job.state }} {{ job.zip_code }}
+      </address>
      </a>
     </li>
    {% empty %}

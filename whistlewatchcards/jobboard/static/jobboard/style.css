@@ -103,3 +103,7 @@ main {
   font-size: 1.25rem;
   padding-block: 0 0.5rem;
 }
+
+.job-list ul li a address {
+  font-style: normal;
+}
