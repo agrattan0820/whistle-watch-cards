@@ -75,3 +75,31 @@ main {
   font-size: 2rem;
   line-height: 1;
 }
+
+/* Job List */
+
+.job-list {
+  padding-block: 2rem;
+}
+
+.job-list ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  list-style-type: none;
+  padding: 0;
+}
+
+.job-list ul li a {
+  color: black;
+  display: block;
+  text-decoration: none;
+  padding: 1rem;
+  border: 1px gainsboro solid;
+  border-radius: 1rem;
+}
+
+.job-list ul li a h2 {
+  line-height: 1;
+  font-size: 1.25rem;
+  padding-block: 0 0.5rem;
+}
