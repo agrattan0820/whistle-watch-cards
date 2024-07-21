@@ -29,6 +29,7 @@ class AssignorClub(models.Model):
 
 class Job(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    title = models.TextField(blank=True)
     assignor = models.ForeignKey(Assignor, on_delete=models.CASCADE)
     club = models.ForeignKey(Club, on_delete=models.CASCADE)
     home_team = models.CharField(max_length=128)
@@ -41,6 +42,7 @@ class Job(models.Model):
     zip_code = models.CharField(max_length=5)
     location = models.CharField(max_length=128)
     league = models.CharField(max_length=128, blank=True)
+    pay = models.DecimalField(max_digits=6, decimal_places=2, blank=True, null=True)
     notes = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
